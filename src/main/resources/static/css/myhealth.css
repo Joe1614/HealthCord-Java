@@ -1,0 +1,110 @@
+table,
+th,
+td {
+  border: 1px solid #ccc;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: auto;
+}
+table th,
+table td {
+  padding: 6px 8px;
+  vertical-align: top;
+  white-space: nowrap;
+}
+table th {
+  background: #ddd;
+  font-weight: 900;
+  text-align: left;
+  white-space: nowrap;
+}
+table tbody tr:nth-child(odd) {
+  background: #f3f3f3;
+}
+
+.scrollable {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.scrollable.is-scrollable:after {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 50px;
+  height: 100%;
+  border-radius: 10px 0 0 10px/50% 0 0 50%;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.25);
+  content: "";
+}
+.scrollable > div {
+  overflow-x: auto;
+}
+.scrollable > div ::-webkit-scrollbar {
+  height: 12px;
+}
+.scrollable > div ::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15) inset;
+}
+.scrollable > div ::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 6px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 5vh;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  border-radius: 10px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 90%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+iframe {
+  width: 100%;
+  height: 80vh;
+  border: none;
+}
+/*# sourceMappingURL=myhealth.88f7375d.css.map */

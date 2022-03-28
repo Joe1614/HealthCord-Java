@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register | HealthCord</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <section>
+        <h1>Login or Register with HealthCord</h1>
+        <div class="container">
+
+            <div class="user signinBx">
+                <div class="imgBx"><img th:src="@{/img/physiotherapist.jpg}" alt=""></div>
+                <div class="formBx">
+                    <form action="" id="loginForm">
+                        <h2>Sign In</h2>
+                        <input type="text" name="username" placeholder="Username">
+                        <input type="password" name="password" placeholder="Password">
+                        <input type="submit" name="" value="Login">   
+                        <p class="signup">
+                            Don't have an account ?
+                            <a href="#" onclick="toggleForm();">Register</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <div class="user signupBx">
+                <div class="formBx">
+                    <form action="" id="registerForm">
+                        <h2>Create an account</h2>
+                        <input type="text" name="name" placeholder="Username" id="" required="">
+                        <input type="tel" name="mobile" placeholder="Mobile no." id="" required="">
+                        <input type="password" name="password" placeholder="Password" id="" required="">
+                        <input type="password" name="cpassword" placeholder="Confirm Password" id="" required="">
+                        <input type="submit" name="" value="Register" id="">
+                        <p class="signup">
+                            Already have an account ?
+                            <a href="#" onclick="toggleForm();">Log in</a>
+                        </p>
+                    </form>
+                </div>
+                <div class="imgBx"><img src="/img/General_physician-new.png" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+<script th:src="@{/scripts/login.js}"></script>
+</body>
+
+</html>

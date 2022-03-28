@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My profile | HealthCord</title>
+  <link rel="stylesheet" href="/css/index.css" />
+
+</head>
+
+<body>
+  <header>
+    <div class="container flex">
+      <button class="nav_toggle" aria-label="open navigation">
+        <span class="hamburger"></span>
+      </button>
+      <a href="/home" class="logo">HealthCord</a>
+      <nav class="nav">
+        <ul class="nav_list">
+          <li class="nav_item"><a href="#" class="nav_link">About</a></li>
+          <li class="nav_item"><a th:href="@{/healthcord?id=} + ${user.id}" class="nav_link">My Health</a></li>
+          <li class="nav_item"><a href="#" class="nav_link">Contact</a></li>
+        </ul>
+        <ul class="nav_list nav_secondary">
+          <li class="nav_item">
+            <a href="/#profile" class="nav_link"><img class="svg" src="/img/user-solid.svg" alt="user-solid" th:text="${user.name}"></a>
+          </li>
+          <li class="nav_item"><a href="/logout" class="nav_link">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="myhealth">
+    <div class="container">
+      <h1 class="txt-center mb-2">My Health Record</h1>
+      <div class="scrollable">
+        <div>
+          <table cellpadding="1" cellspacing="1">
+            <tr>
+              <th>Report Id</th>
+              <th>Symptoms</th>
+              <th>Physician/Doctor Name, Specialisation</th>
+              <th>Clinic/Hospital Name, Location</th>
+              <th>Diagnosis</th>
+              <th>Remedy/treatment advised</th>
+              <th>Consultation Date</th>
+              <th>Report file</th>
+            </tr>
+            <tr th:each="record : ${healthrecord}">
+              <td th:text="${record.id}"></td>
+              <td th:text="${record.symptoms}"></td>
+              <td th:text="${record.doctorName}"></td>
+              <td th:text="${record.hospitalName}"></td>
+              <td th:text="${record.diagnosis}"></td>
+              <td th:text="${record.remedy}"></td>
+              <td th:text="${record.consultationDate}"></td>
+              <td><img id="myBtn" class="svg" src="/img/file-medical-solid.svg" alt="file-medical-solid"> View Report</td>
+              <td></td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(healthcord)}">
+              <td colspan="8" style="text-align: center;color: red;">No More Records Available. Upload health report to view it here....</td>
+            </tr>
+          </table>
+
+        </div><!-- END inner div -->
+      </div><!-- END scrollable -->
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h2 class="mb-1">Future updates</h2>
+      <ul class="mb-2">
+        <li>book appointments</li>
+        <li>choose your family doctor</li>
+        <li>don't choose specialist yourself</li>
+        <li>General physician or physiotherapist shall guide you to a specialist</li>
+      </ul>
+      <div class="flex">
+        <div class="about">
+          <h2 class="mb-1">Contact</h2>
+          <ul>
+            <li>Contact: 9874563210</li>
+            <li>support@email.com</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+    <script th:src="@{/scripts/index.js}" defer=""></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+  <!-- responsive table js -->
+  <script type="module">
+    function horzScrollbarDetect() {
+
+      var $scrollable = $('.scrollable')
+      var $innerDiv = $('.scrollable > div');
+
+      if ($innerDiv.outerWidth() < $innerDiv.get(0).scrollWidth) {
+
+        $scrollable.addClass('is-scrollable');
+        console.log('Scrollbar, WOOT!')
+
+      } else {
+
+        $scrollable.removeClass('is-scrollable');
+        console.log('There is no scrollbar, only Zuul');
+
+      }
+
+    }
+
+    $(document).ready(function () {
+
+      horzScrollbarDetect();
+      console.log('document. boom. ready.')
+
+    });
+
+    $(window).resize(function () {
+
+      horzScrollbarDetect();
+      console.log('window resized');
+
+    });
+
+
+
+  </script>
+
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>My health report title symptom-Doc_name-consulation_date dynamically to be fetched from form data</h3>
+      <div class="modal_body">
+        <!-- If user input uploaded img then show,
+        <img src="./img/general_physician.jpg" alt="general_physician"> 
+      else show PDF below  
+      -->
+
+        <iframe src="/img/Parcel-intro.pdf"></iframe>
+        <!-- <embed src="Parcel-intro.pdf" width="800px" height="2100px" /> -->
+      </div>
+    </div>
+
+  </div>
+  <!-- modal js -->
+  <script type="module">
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+  </script>
+</body>
+
+</html>
