@@ -11,6 +11,7 @@ $("#healthRecordForm").on("submit",function(event){
         data: data,
         success: function(data){
             $("#healthRecordForm input.form_control").val('');
+            alert("Records added successfully. View your record in myhealth page.");
         },
         error: function(error){
             console.log(error);

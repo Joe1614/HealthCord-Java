@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthCord App Introduction</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: lightblue;
+        margin: 0;
+        /* border: 2px solid #ff0000; */
+
+      }
+      .container {
+        width: min(80%, 800px);
+        margin-inline: auto;
+        /* border: 1px solid ; */
+        text-align: center;
+      }
+      .d-grid{
+        display: grid;
+        min-height: 100vh;
+    }
+
+    .place-items-center{
+          place-items: center;
+
+      }
+      .place-content-center{
+          place-content: center;
+      }
+      .border-radius-10{
+          border-radius: 10px;
+      }
+      .img-fluid{
+          max-width: 100%;
+          height: auto;
+          display: block;
+
+      }
+      .btn{
+          text-decoration: none;
+          background-color: #022b3a;
+          color: #fff;
+          font-size: 1.1rem;
+          padding: 1em 1.3em;
+          margin-top: 1rem;
+          width: fit-content;
+          margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container d-grid minH place-content-center">
+      <h1>Welcome to HealthCord Application</h1>
+      <h3>Your personal health record saving Application.</h3>
+      <p>
+        Don't keep your health records scattered anymore. Organize and keep in
+        at one place. Share it with your doctor. Use it to review your health
+        condition. And do a lot more.
+      </p>
+      <img class="img-fluid border-radius-10" src="/src/main/resources/static/img/health-record.jpg" alt="health-record img" />
+      <!-- clicking on next steps should take to login /reg screen -->
+      <a href="" class="btn border-radius-10">Next steps..</a>
+    </div>
+  </body>
+</html>
